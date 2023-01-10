@@ -1,0 +1,22 @@
+{
+  "data": [
+    {
+      "name": "Debanjan Basu",
+      "location": "Kolkata",
+      "date": "3/11/2022",
+      "time": "22:08"
+    },
+    {
+      "name": "Rajarshi Barman",
+      "location": "Siliguri",
+      "date": "3/11/2022",
+      "time": "22:08"
+    },
+    {
+      "name": "Ayushya CHongder",
+      "location": "Bhadreswar",
+      "date": "13/10/2022",
+      "time": "01:08"
+    }
+  ]
+}

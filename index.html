@@ -1,0 +1,269 @@
+<!--
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Second</title>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">  
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="./controller.js"></script>
+    <style>
+
+#Datum
+{
+        
+        box-shadow: 2px 4px 16px grey;
+        font-family: Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+
+}
+#Datum td, #Datum th {
+    border: 1px solid #ddd;
+    padding: 12px;
+}
+#Datum th {
+    font-weight: bold;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    background-color: rgb(33, 33, 206);
+    color: rgb(255, 255, 255);
+}
+#Datum tr:nth-child(even){background-color: #f2f2f2;}
+
+#Datum tr:hover {
+    background-color: rgb(196, 247, 213);
+    cursor: pointer;
+}
+
+
+*{
+    padding: 0;
+    margin: 0;
+}
+.back
+{
+    background-image: url("https://images.unsplash.com/photo-1668356352028-8a7e695e3bfd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1932&q=80");
+    height: 350px;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.7;
+}
+.label
+{
+    background-color: rgb(193, 193, 193);
+    border: none;
+    color: black;
+    margin-right: 12px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    box-shadow: -3px 5px 6px rgb(0, 0, 0) ;
+}
+.message
+{
+    background-color: rgb(255, 0, 0);
+    color: white;
+    padding: 2rem;
+    box-shadow: 3px 4px 12px rgb(76, 1, 1);
+    border-radius: 5px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+#custom
+{
+    font-family: monospace;
+    margin-bottom: -1px;
+}
+    </style>
+    
+</head>
+<body>
+        <div ng-app ="myApp" ng-controller ="myCtrl">
+         <div class="container-fluid ">
+            <div class="row back justify-content-center align-items-center">
+                <div class="col-10">
+                    <div class="input-group mb-3">
+                        <label class="form-control label">Search Records  </label>
+                        <input type="text" class="form-control" placeholder="Search by any field" ng-model="test.$">
+                        <input type="text" class="form-control" placeholder="Seacrh by name" ng-model="test.name">
+                      </div>
+                </div>
+            </div>
+         </div>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-10">
+                        <h3 style="margin-top: 2rem; background-color: rgb(255, 255, 255);
+                        padding: 1rem; padding-right:4rem ; border-radius: 5px; box-shadow: -9px 4px 15px grey;">Codemia Customer Records :</h3>
+                        <table id="Datum" class="table-responsive">
+                            <tr>
+                                <th>Id</th>
+                                <th>Name</th>
+                                <th>Location</th>
+                                <th>Age</th>
+                                <th>Gender</th>
+                                <th>Interest</th>
+                            </tr>
+                            <tr ng-repeat="names in jsondata | filter:test">
+                                <td>{{names.id}}</td>
+                                <td>{{ names.name}}</td>
+                                <td>{{ names.location}}</td>
+                                <td>{{ names.age }}</td>
+                                <td>{{ names.gender }}</td>
+                                <td>{{ names.interest}}</td>
+                              </tr>
+                          </table>
+                          <h4 class="message"ng-show="(jsondata |filter:test).length == 0"> Oopss no result found :(</h4>
+                    </div>
+                </div>
+            </div>  
+        </div>
+        <hr/>
+        <center><h5>&copy; Darpan Deb</h5></center>
+</body>
+</html>
+-->
+<!DOCTYPE html>
+<html ng-app="myApp">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>CODEMIA</title>
+    <link rel="stylesheet" href="index.css" />
+    
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  </head>
+  <body>
+
+     <div ng-controller='myCtrl'>
+        <!-- header starts -->
+    <div class="header">
+        <div class="header__left">
+            <img src="./assets/logo.png" alt="" />
+            <div class="header__input">
+                <input type="text" placeholder="Search People"  ng-model="test.name"/>
+            </div>
+        </div>
+
+        <div class="header__right">
+            <div class="header__info">
+                <img src="./assets/Mask group.png" alt="" class="user__avatar" />
+                <h4>Debanjan Basu</h4>
+            </div>
+        </div>
+    </div>
+
+    <!-- main body starts -->
+    <div class="main__body">
+        <!-- sidebar starts -->
+        <div class="sidebar">
+            <div class="sidebarRow">
+                <img src="./assets/Mask group.png" alt="" class="user__avatar" />
+                <h4>Debanjan Basu</h4>
+            </div>
+
+            <div class="sidebarRow">
+                <span class="material-icons"> Home</span>
+            </div>
+
+            <div class="sidebarRow">
+                <span class="material-icons">Messages </span>
+            </div>
+
+            <div class="sidebarRow">
+                <span class="material-icons"> Profile Page </span>
+            </div>
+
+            <div class="sidebarRow">
+                <span class="material-icons"> Doubt Clearing </span>
+            </div>
+        </div>
+
+
+        <!-- feed starts -->
+        <div class="feed">
+
+
+            <!-- message sender starts -->
+            <div class="messageSender">
+                <div class="messageSender__top">
+                    <img src="./assets/Mask group.png" alt="" srcset="">
+                    <form>
+                        <input class="messageSender__input" placeholder="Any update?" type="text" />
+                    </form>
+                </div>
+
+                <div class="messageSender__bottom">
+                    <div class="messageSender__option">
+                        <span style="color: red" class="material-icons">Photo </span>
+
+                    </div>
+
+                    <div class="messageSender__option">
+                        <span style="color: green" class="material-icons">
+                            Video
+                        </span>
+                    </div>
+
+                    <div class="messageSender__option">
+                        <span style="color: orange" class="material-icons">
+                            Code
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+                
+
+            <!-- post  1 starts -->
+            <div class="post"  ng-repeat="n in jsondata | filter:test" >
+                <div class="post__top">
+                    <img src="./assets/Mask group.png" alt="" srcset="">
+                    <div class="post__topInfo">
+                        <h3>{{n.name}}</h3>
+                        <p>{{n.date}} at {{n.time}}</p>
+                    </div>
+                </div>
+
+                <div class="post__bottom">
+                    <p>This is a sample post video</p>
+                </div>
+
+                <div class="post__image">
+                    <video width="980" controls>
+                        <source src="./assets/video_html.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+
+                </div>
+
+                <div class="post__options">
+                    <div class="post__option">
+                        <span class="material-icons">Like </span>
+                    </div>
+
+                    <div class="post__option">
+                        <span class="material-icons"> Comment </span>
+                    </div>
+
+                    <div class="post__option">
+                        <span class="material-icons"> Share </span>
+                    </div>
+                </div>
+            </div>
+
+
+           
+
+        </div>
+        <!-- main body ends -->
+        </div>
+    <script src="./controller.js"></script>
+  </body>
+</html>
